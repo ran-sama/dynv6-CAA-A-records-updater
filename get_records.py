@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import requests
+import requests, json
 
 zone_ID = '4000000'
 API_token = 'supersecrettoken'
@@ -9,4 +9,5 @@ API_header = {'Authorization': 'Bearer ' + API_token, 'content-type': 'applicati
 
 my_post =  requests.get(url=API_URI,headers=API_header)
 my_reply = my_post.content.decode('utf-8')
-print(my_reply)
+json_object = json.loads(my_reply)
+print(json.dumps(json_object, indent=4, sort_keys=True))
