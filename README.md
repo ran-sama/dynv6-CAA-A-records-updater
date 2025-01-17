@@ -1,4 +1,4 @@
-# python-3-CAA-A-records-dynv6
+# python3-CAA-A-records-dynv6
 Create, update and get your CAA and A records for dynv6.
 
 ## Info
