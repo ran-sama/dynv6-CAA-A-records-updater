@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import requests, re
+import requests, time, re
 
 zone_ID = '4000000'
 API_token = 'supersecrettoken'
@@ -20,12 +20,11 @@ my_json_object = """{
 "zoneID": 4000000
 }"""
 
-default_route_json = re.sub(r'blank', '@', my_json_object)
-my_post =  requests.post(url=API_URI,data=default_route_json,headers=API_header)
-my_reply = my_post.content.decode('utf-8')
-print(my_reply)
+def autofill_record(name):
+    temp_route = re.sub(r'blank', name, my_json_object)
+    my_post =  requests.post(url=API_URI,data=temp_route,headers=API_header)
+    print(my_post.content.decode('utf-8'))
+    time.sleep(3)
 
-wildcard_json = re.sub(r'blank', '*', my_json_object)
-my_post =  requests.post(url=API_URI,data=wildcard_json,headers=API_header)
-my_reply = my_post.content.decode('utf-8')
-print(my_reply)
+autofill_record('@')
+autofill_record('*')
