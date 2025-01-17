@@ -1,4 +1,4 @@
-# dynv6-CAA-A-records-updater
+# python-3-CAA-A-records-dynv6
 Create, fetch and update A and CAA records for dynv6.
 
 ## Info
